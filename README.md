@@ -6,3 +6,5 @@ PW:   fiot5!
 AP by Pi:
 SSID: raspi-webGUI
 Key:  ChangeMe
+
+SSH:  fiot5@10.3.141.1
