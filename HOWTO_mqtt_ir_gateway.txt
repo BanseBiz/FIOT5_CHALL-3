@@ -1,0 +1,22 @@
+1. Connect flasher to Pearl auvisio
+ Flasher | Board 
+    3V3 <-> 3V3
+    GND <-> GND
+     RX <-> TX
+     TX <-> RX
+    GND <-> GPIO
+
+2. Connect the flasher via USB
+3. Go to https://tasmota.github.io/install/
+4. Choose ESP8266 and Connect
+5. Wait for the flashing process
+6. Disconnect the Flasher and provide the auviso with power over USB
+7. Connect to WiFi netword "tasmota_xXx"
+8. Open 192.168.4.1 in browser
+9. Enter credentials of the WiFi-Network to connect to
+10. Copy the shown IP-Adress
+11. Connect to the in 8. provided WiFi-Network.
+12. Enter the copied IP-adress in browser
+13. Configuration -> Configure Module -> Choose YFT IR Bridge
+
+14. Configuration -> Configure MQTT : enter mqtt parameters
