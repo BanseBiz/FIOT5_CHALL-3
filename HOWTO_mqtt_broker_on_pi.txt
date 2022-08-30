@@ -1,0 +1,10 @@
+INSTALL:
+sudo apt install -y mosquitto mosquitto-clients
+sudo systemctl enable mosquitto.service
+sudo nano /etc/mosquitto/mosquitto.conf
+
+CONFIGURE
+sudo nano /etc/mosquitto/mosquitto.conf
+add lines:
+listener 1883
+allow_anonymous true
