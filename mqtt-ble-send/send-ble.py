@@ -5,7 +5,7 @@ from bleak import BleakClient
 from bleak import BleakClient, BleakScanner
 from bleak.exc import BleakError
 
-ADDRESS = "ff:21:09:28:22:5a"
+ADDRESS = "ff:21:09:28:32:6c"
 CHARACTERISTIC = "0xfff3"
 ON = "0xBC01010155"
 OFF = "0xBC01010055"
