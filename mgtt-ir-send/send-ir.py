@@ -2,7 +2,7 @@ import paho.mqtt.client as paho
 import sys
 import time
 
-broker="192.168.0.235"
+broker="192.168.0.152"
 port=1883
 
 topic="cmnd/tasmota_23DFCF/IRsend"
@@ -21,4 +21,4 @@ for data in sys.argv[1:] :
     client1.connect(broker,port)                                 #establish connection
     ret = client1.publish(topic,msg)
     print(msg)
-    time.sleep(0.2)
+    time.sleep(1.0)
