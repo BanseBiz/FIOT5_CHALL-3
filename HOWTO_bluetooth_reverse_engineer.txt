@@ -1,0 +1,33 @@
+To reverse engineer the bluetooth protocol used by the audio meters, first we install the app that the device comes with.
+The url of the app is here: http://www.qrtransfer.com/Colorful_Lights.html
+
+We advice you use a bluetooth capable android (tested on Android 10, Xiaomi phone)
+
+
+Capturing a bluetooth trace from the App to the phone:
+1. Enable Android developer mode
+2. Enable bluetooth HCI snoop and USB debugging from Developer Options menu
+3. Toggle the bluetooth to start the capture
+4. Open the "Colorful Lights" App and start sending commands to the audio meter
+5. Once all the commands you want to replicate have been recorded turn off the bluetooth
+6. Connect the phone to the laptop, install adb from android developer tools
+7. Run the command: adb devices
+8. Ensure that the required permissions are set.
+9. Run the command: adb bugreport <FILENAME>
+10. The .zip file that is created will (if you are lucky, depending on the phone) contain a folder FS/data/misc/bleutooth/logs/btsnoop_hci.log
+11. Copy the log file and open in Wireshark 
+
+Decoding the protocol:
+
+1. In wireshark you can filter the messages destination by the bluetooth HW address of the audio meter (can be found from phone / Colourful lights app)
+2. Apply this filter and see only attribute write messages: bluetooth.dst==ff:21:09:28:22:5a
+3. Check the attribute (which service, which characteristic) field which the phone writes to, to change the color. For us this was 0xFFF3
+4. From this characteristic check the value that is being written. Try to reverse engineer the simple commands like ON/OFF. 
+5. Colour can be tricky. Use ONLY R, G, B and White in the beginning to map these to HEX values in the protocol. 
+6. Usually these protocols are simple 20-30 bytes where each byte in the packet represents a specific property of the audio meter like brightness, color, etc.
+7. Save these values in a CONFIG.JSON file for the Pi to read.
+
+References that might help: 
+[1] https://medium.com/@charlie.d.anderson/how-to-get-the-bluetooth-host-controller-interface-logs-from-a-modern-android-phone-d23bde00b9fa
+[2] https://urish.medium.com/reverse-engineering-a-bluetooth-lightbulb-56580fcb7546
+[3] https://stackoverflow.com/questions/28445552/bluetooth-hci-snoop-log-not-generated
