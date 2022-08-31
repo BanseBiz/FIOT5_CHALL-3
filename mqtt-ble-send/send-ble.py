@@ -1,9 +1,10 @@
+import asyncio
 from bleak import BleakClient
 from bleak import BleakClient, BleakScanner
 from bleak.exc import BleakError
 
 ADDRESS = "ff:21:09:28:22:5a"
-CHARACTERISTIC = ""
+CHARACTERISTIC = "0xfffe"
 
 
 
