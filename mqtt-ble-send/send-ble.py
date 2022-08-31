@@ -11,7 +11,7 @@ CHARACTERISTIC = "0xfffe"
 async def main():
     device = await BleakScanner.find_device_by_address(ADDRESS, timeout=20.0)
     if not device:
-        raise BleakError(f"A device with address {ble_address} could not be found.")
+        raise BleakError(f"A device with address {ADDRESS} could not be found.")
     async with BleakClient(device) as client:
         svcs = await client.get_services()
         print("Services:")
