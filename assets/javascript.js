@@ -16,8 +16,8 @@
         minutes = minutes < 10 ? "0" + minutes : minutes;
         seconds = seconds < 10 ? "0" + seconds : seconds;
 
-	document.getElementById("minutes").innerText = Math.floor((distance % (hour)) / (minute)),
-          document.getElementById("seconds").innerText = Math.floor((distance % (minute)) / second);
+	document.getElementById("minutes").innerText = minutes),
+        document.getElementById("seconds").innerText = seconds);
 
         if (diff <= 0) {
           document.getElementById("headline").innerText = "It's my birthday!";
