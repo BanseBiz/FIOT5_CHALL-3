@@ -4,9 +4,9 @@ import time
 import json
 import asyncio
 
-CONFIG_PATH = '/home/fiot5/FIOT_CHALL-5/CONFIGS/mqtt_ir_relay_config.json'
-COMMANDS_DMX_PATH = '/home/fiot5/FIOT_CHALL-5/CONFIGS/DMX_commands.json'
-COMMANDS_LED_PATH = '/home/fiot5/FIOT_CHALL-5/CONFIGS/LDEstrip_commands.json'
+CONFIG_PATH = '/home/fiot5/FIOT_CHALL-3/CONFIGS/mqtt_ir_relay_config.json'
+COMMANDS_DMX_PATH = '/home/fiot5/FIOT_CHALL-3/CONFIGS/DMX_commands.json'
+COMMANDS_LED_PATH = '/home/fiot5/FIOT_CHALL-3/CONFIGS/LDEstrip_commands.json'
 
 HEAD="{\"Protocol\":\"NEC\",\"Bits\":"
 HEAD2="\",\"Data\":"

@@ -13,8 +13,8 @@ from bleak.exc import BleakError
 #ADDRESS = "ff:21:09:28:22:5a"
 #CHARACTERISTIC = "0000fff3-0000-1000-8000-00805f9b34fb"
 
-CONFIG_PATH = '/home/fiot5/FIOT_CHALL-5/CONFIGS/mqtt_ble_config.json'
-COMMANDS_PATH = '/home/fiot5/FIOT_CHALL-5/CONFIGS/jtx_commands.json'
+CONFIG_PATH = '/home/fiot5/FIOT_CHALL-3/CONFIGS/mqtt_ble_config.json'
+COMMANDS_PATH = '/home/fiot5/FIOT_CHALL-3/CONFIGS/jtx_commands.json'
 
 ble_commands = []
 
