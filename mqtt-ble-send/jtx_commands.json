@@ -1,10 +1,10 @@
 {
-    ON : "bc01010155",
-    OFF : "bc01010055",
-    COLOR_BLU : "",
-    COLOR_GRN : "",
-    COLOR_YLW : "",
-    COLOR_ONG : "",
-    COLOR_RED : "",
-    COLOR_WHT : ""
+    "ON": "bc01010155",
+    "OFF": "bc01010055",
+    "COLOR_BLU": "",
+    "COLOR_GRN": "",
+    "COLOR_YLW": "",
+    "COLOR_ONG": "",
+    "COLOR_RED": "",
+    "COLOR_WHT": ""
 }
