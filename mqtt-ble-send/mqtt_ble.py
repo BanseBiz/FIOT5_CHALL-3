@@ -1,6 +1,7 @@
-import paho.mqtt.client as paho
+import paho.mqtt.client as mqtt
 import sys
 import time
+import asyncio
 
 from bleak import BleakClient
 from bleak import BleakClient, BleakScanner
@@ -16,10 +17,10 @@ MQTT_HOST = '192.168.0.152'
 MQTT_PORT = 1883
 
 def on_connect(client, userdata, flags, rc):
-    print("Connected with result code {0}".format(str(rc)))  
+    print("Connected with result code {0}".format(str(rc)))
 
 
-def on_message(client, userdata, msg):
+async def on_message(client, userdata, msg):
     print("Message received-> " + msg.topic + " " + str(msg.payload))
     if not device:
         raise BleakError(f"A device with address {ADDRESS} could not be found.")
