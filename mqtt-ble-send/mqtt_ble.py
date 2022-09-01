@@ -19,7 +19,6 @@ MQTT_HOST = '192.168.0.152'
 MQTT_PORT = 1883
 
 ble_commands = []
-ble_commands_list = []
 
 def on_connect(client, userdata, flags, rc):
     print("Connected with result code {0}".format(str(rc)))
@@ -27,7 +26,7 @@ def on_connect(client, userdata, flags, rc):
 
 def on_message(client, userdata, msg):
     print("Message received-> " + msg.topic + " " + str(msg.payload))
-    ble_commands.append(ble_commands_list[msg.payload])
+    ble_commands.append(msg.payload)
 
 def ble_command_thread():
     asyncio.run(ble_command_handle())
@@ -35,22 +34,25 @@ def ble_command_thread():
 async def ble_command_handle():
     while 1:
         if ble_commands:
-            print("Connecting to ble device")
-            device = await BleakScanner.find_device_by_address(ADDRESS, timeout=20.0)
-            if not device:
-                print(f"a device with address {ADDRESS} could not be found.")
-            async with BleakClient(device) as client:
-                await client.write_gatt_char(CHARACTERISTIC, ble_commands.pop(0))
-                print(f"send command to ble device")
+            with open('jtx_commands.json') as f:
+                ble_commands_list = json.loads(f.read())
+                f.close()
+                print("Connecting to ble device")
+                try: 
+                    device = await BleakScanner.find_device_by_address(ADDRESS, timeout=20.0)
+                    if not device:
+                        print(f"a device with address {ADDRESS} could not be found.")
+                    async with BleakClient(device) as client:
+                        await client.write_gatt_char(CHARACTERISTIC, ble_commands_list[ble_commands.pop(0)])
+                        print(f"send command to ble device")
+                except:
+                    print("An exception occurred")
+
         await asyncio.sleep(2.0)
     return 1
 
 
-async def main():
-    with open('jtx_commands.json') as f:
-        ble_commands_list = json.loads(f.read())
-        f.close()
-    
+async def main():   
     ble_thread = threading.Thread(target=ble_command_thread)
     ble_thread.start()
     client = mqtt.Client("mqtt_ble_bridge")
