@@ -29,6 +29,31 @@ nums = {0: "0xFF9867",
 
 app = Dash(__name__)
 
+
+app.layout = html.Div([
+    html.Button('Button 1', id='btn-nclicks-1', n_clicks=0),
+    html.Button('Button 2', id='btn-nclicks-2', n_clicks=0),
+    html.Button('Button 3', id='btn-nclicks-3', n_clicks=0),
+    html.Div(id='container-button-timestamp')
+])
+
+@app.callback(
+    Output('container-button-timestamp', 'children'),
+    Input('btn-nclicks-1', 'n_clicks'),
+    Input('btn-nclicks-2', 'n_clicks'),
+    Input('btn-nclicks-3', 'n_clicks')
+)
+def displayClick(btn1, btn2, btn3):
+    msg = "None of the buttons have been clicked yet"
+    if "btn-nclicks-1" == ctx.triggered_id:
+        msg = "Button 1 was most recently clicked"
+    elif "btn-nclicks-2" == ctx.triggered_id:
+        msg = "Button 2 was most recently clicked"
+    elif "btn-nclicks-3" == ctx.triggered_id:
+        msg = "Button 3 was most recently clicked"
+    return html.Div(msg)
+
+'''
 app.layout = html.Div([
     html.Div(dcc.Input(id='input-on-submit', type='text')),
     html.Button('Submit', id='submit-val', n_clicks=0),
@@ -42,6 +67,7 @@ app.layout = html.Div([
     Input('submit-val', 'n_clicks'),
     State('input-on-submit', 'value')
 )
+
 def update_output(n_clicks, value):
 #	for value in sys.argv[1:] :
 #	bits = len(value)*4
@@ -52,7 +78,6 @@ def update_output(n_clicks, value):
 #	ret = client1.publish(topic,data2send)
 #	print(data2send)
 #	time.sleep(1.0)
-        while True:
             try:
                 data = int(value)
                 print("You entered: ", data)
@@ -127,7 +152,7 @@ def update_output(n_clicks, value):
                 break;
             except ValueError:
                 return 'INVALID INPUT'
-
+'''
 if __name__ == '__main__':
     app.run_server(debug=True,host='0.0.0.0',port='65432')
 
