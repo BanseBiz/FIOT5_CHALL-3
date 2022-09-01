@@ -10,8 +10,11 @@ from bleak import BleakClient, BleakScanner
 from bleak.exc import BleakError
 
 #ADDRESS = "ff:21:09:28:32:6c"
-ADDRESS = "ff:21:09:28:22:5a"
-CHARACTERISTIC = "0000fff3-0000-1000-8000-00805f9b34fb"
+#ADDRESS = "ff:21:09:28:22:5a"
+#CHARACTERISTIC = "0000fff3-0000-1000-8000-00805f9b34fb"
+
+CONFIG_PATH = '../CONFIGS/mqtt_ble_config.json'
+COMMANDS_PATH = '../CONFIGS/jtx_commands.json'
 
 ble_commands = []
 
@@ -29,11 +32,11 @@ def ble_command_thread():
 async def ble_command_handle():
     while 1:
         if ble_commands:
-            with open('jtx_commands.json') as f:
+            with open(COMMANDS_PATH) as f:
                 ble_commands_list = json.loads(f.read())
                 f.close()
                 print("Connecting to ble device")
-                with open('mqtt_ble_config.json') as conf_f:
+                with open(CONFIG_PATH) as conf_f:
                     config = json.loads(conf_f.read())
                     address = config["BLE_ADDRESS"]
                     characteristic = config["CHARACTERISTIC"]
@@ -52,7 +55,7 @@ async def ble_command_handle():
 
 
 async def main():   
-    with open('mqtt_ble_config.json') as conf_f:
+    with open(CONFIG_PATH) as conf_f:
         config = json.loads(conf_f.read())
         topic = config["MQTT_LISTEN_TOPIC"]
         mqtt_host = config["MQTT_HOST"]
