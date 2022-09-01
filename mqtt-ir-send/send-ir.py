@@ -10,7 +10,7 @@ head="{\"Protocol\":\"NEC\",\"Bits\":"
 head2="\",\"Data\":"
 
 def on_publish(client,userdata,result):             #create function for callback
-    print("data published \n")
+    print(f"data published: {result} \n")
     pass
 
 for data in sys.argv[1:] :
