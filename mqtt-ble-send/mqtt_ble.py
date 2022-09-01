@@ -27,8 +27,8 @@ def on_message(client, userdata, msg):
     ble_commands.append(msg.payload)
 
 async def ble_command_handle():
-    while(true)
-        if ble_commands
+    while 1:
+        if ble_commands:
             print("Connectin to ble device")
             device = await BleakScanner.find_device_by_address(ADDRESS, timeout=20.0)
             if not device:
