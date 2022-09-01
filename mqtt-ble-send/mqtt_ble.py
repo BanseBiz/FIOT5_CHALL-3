@@ -26,21 +26,25 @@ def on_message(client, userdata, msg):
     print("Message received-> " + msg.topic + " " + str(msg.payload))
     ble_commands.append(msg.payload)
 
+def ble_command_thread():
+    asyncio.run(ble_command_handle())
+
 async def ble_command_handle():
     while 1:
         if ble_commands:
             print("Connectin to ble device")
             device = await BleakScanner.find_device_by_address(ADDRESS, timeout=20.0)
             if not device:
-                raise BleakError(f"A device with address {ADDRESS} could not be found.")
+                print(f"a device with address {ADDRESS} could not be found.")
             async with BleakClient(device) as client:
-                await client.write_gatt_char(CHARACTERISTIC, bytearray.fromhex(ble_commands.pop(0)))
+                await client.write_gatt_char(CHARACTERISTIC, ble_commands.pop(0))
+                print(f"send command to ble device")
         await asyncio.sleep(2.0)
     return 1
 
 
 async def main():
-    ble_thread = threading.Thread(target=ble_command_handle)
+    ble_thread = threading.Thread(target=ble_command_thread)
     ble_thread.start()
     client = mqtt.Client("mqtt_ble_bridge")
     client.on_connect = on_connect
