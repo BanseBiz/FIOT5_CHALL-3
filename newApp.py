@@ -29,13 +29,32 @@ nums = {0: "0xFF9867",
 
 app = Dash(__name__)
 
-
-app.layout = html.Div([
-    html.Button('Button 1', id='btn-nclicks-1', n_clicks=0),
-    html.Button('Button 2', id='btn-nclicks-2', n_clicks=0),
-    html.Button('Button 3', id='btn-nclicks-3', n_clicks=0),
-    html.Div(id='container-button-timestamp')
+app.layout = html.Div([html.Div('',className='container'),
+html.h1('Speaker Countdown timer', id='headline'),
+html.h1(' ', id='headline'), 
+html.Div('', id='countdown'),
+html.ul([html.li([html.span(id='minutes')],'Minutes'), html.span(id='seconds')],'Seconds')])],
+html.Button('Button 1', id='btn-nclicks-1', n_clicks=0),
+html.Button('Button 2', id='btn-nclicks-2', n_clicks=0),
+html.Button('Button 3', id='btn-nclicks-3', n_clicks=0),
+html.Div(id='container-button-timestamp')
 ])
+
+
+html.Div([
+    html.Div('Example Div', style={'color': 'blue', 'fontSize': 14}),
+    html.P('Example P', className='my-class', id='my-p-element')
+], style={'marginBottom': 50, 'marginTop': 25})
+
+
+<div style="margin-bottom: 50px; margin-top: 25px;">
+    <div style="color: blue; font-size: 14px">
+        Example Div
+    </div>
+    <p class="my-class", id="my-p-element">
+        Example P
+    </p>
+</div>
 
 @app.callback(
     Output('container-button-timestamp', 'children'),
