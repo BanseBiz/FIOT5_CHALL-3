@@ -1,10 +1,11 @@
 (function () {
-
     var start = Date.now(),
         diff,
+        duration,
         minutes,
         seconds;
     function timer() {
+        duration = 100;
         // get the number of seconds that have elapsed since 
         // startTimer() was called
         diff = duration - (((Date.now() - start) / 1000) | 0);
@@ -16,11 +17,11 @@
         minutes = minutes < 10 ? "0" + minutes : minutes;
         seconds = seconds < 10 ? "0" + seconds : seconds;
 
-	document.getElementById("minutes").innerText = minutes),
-        document.getElementById("seconds").innerText = seconds);
+	document.getElementById("minutes").innerText=minutes;
+  document.getElementById("seconds").innerText=seconds;
 
         if (diff <= 0) {
-          document.getElementById("headline").innerText = "It's my birthday!";
+          document.getElementById("headline").innerText = "Times up!";
           document.getElementById("countdown").style.display = "none";
           document.getElementById("content").style.display = "block";
           clearInterval(x);
