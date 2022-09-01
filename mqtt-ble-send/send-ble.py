@@ -21,6 +21,7 @@ async def main():
         for service in svcs:
             print(service)
             for char in service.characteristics:
+                print("Characteristic:")
                 print(char)
         #await client.write_gatt_char(CHARACTERISTIC, OFF)
         #time.sleep(2.0)
