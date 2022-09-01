@@ -6,7 +6,7 @@ from bleak import BleakClient, BleakScanner
 from bleak.exc import BleakError
 
 ADDRESS = "ff:21:09:28:32:6c"
-CHARACTERISTIC = "0xfff3"
+CHARACTERISTIC = "5833ff03-9b8b-5191-6142-22a4536ef123"
 ON = "0xBC01010155"
 OFF = "0xBC01010055"
 
@@ -23,9 +23,9 @@ async def main():
             for char in service.characteristics:
                 print("Characteristic:")
                 print(char)
-        #await client.write_gatt_char(CHARACTERISTIC, OFF)
-        #time.sleep(2.0)
-        #await client.write_gatt_char(CHARACTERISTIC, ON)
+        await client.write_gatt_char(CHARACTERISTIC, OFF)
+        time.sleep(2.0)
+        await client.write_gatt_char(CHARACTERISTIC, ON)
 
 
 if __name__ == "__main__":
