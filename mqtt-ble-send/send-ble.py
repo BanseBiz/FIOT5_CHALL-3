@@ -7,8 +7,9 @@ from bleak.exc import BleakError
 
 ADDRESS = "ff:21:09:28:32:6c"
 CHARACTERISTIC = "0000fff3-0000-1000-8000-00805f9b34fb"
-ON = "\xbc01010155"
-OFF = [0xbc,0x01,0x01,0x00,0x55]
+ON = "bc01010155"
+OFF = "bc01010055"
+
 
 async def main():
     device = await BleakScanner.find_device_by_address(ADDRESS, timeout=20.0)
@@ -22,8 +23,7 @@ async def main():
 #            for char in service.characteristics:
 #                print("Characteristic:")
 #                print(char)
-        byte_data = bytearray(OFF)
-        await client.write_gatt_char(CHARACTERISTIC, byte_data)
+        await client.write_gatt_char(CHARACTERISTIC, bytearray.fromhex(OFF))
         print(f"send {OFF}")
 
 if __name__ == "__main__":
