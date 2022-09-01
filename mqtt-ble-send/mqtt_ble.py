@@ -16,16 +16,15 @@ MQTT_TOPIC = "cmnd/ble"
 MQTT_HOST = '192.168.0.152'
 MQTT_PORT = 1883
 
+ble_commands = []
+
 def on_connect(client, userdata, flags, rc):
     print("Connected with result code {0}".format(str(rc)))
 
 
-async def on_message(client, userdata, msg):
+def on_message(client, userdata, msg):
     print("Message received-> " + msg.topic + " " + str(msg.payload))
-    if not device:
-        raise BleakError(f"A device with address {ADDRESS} could not be found.")
-    async with BleakClient(device) as client:
-        await client.write_gatt_char(CHARACTERISTIC, bytearray.fromhex(msg.payload))
+    ble_commands.append(msg.payload)
 
 async def main():
     device = await BleakScanner.find_device_by_address(ADDRESS, timeout=20.0)
@@ -33,6 +32,15 @@ async def main():
     client.on_connect = on_connect
     client.on_message = on_message
     client.connect(MQTT_HOST, MQTT_PORT)
+    client.subscribe(MQTT_TOPIC,0)
+    while(true)
+        if ble_commands
+            device = await BleakScanner.find_device_by_address(ADDRESS, timeout=20.0)
+            if not device:
+                raise BleakError(f"A device with address {ADDRESS} could not be found.")
+            async with BleakClient(device) as client:
+                await client.write_gatt_char(CHARACTERISTIC, bytearray.fromhex(ble_commands.pop(0)))
+        time.sleep(2.0)
     client.loop_forever()
 
 if __name__ == "__main__":
