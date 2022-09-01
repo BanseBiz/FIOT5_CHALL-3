@@ -54,7 +54,6 @@ async def ble_command_handle():
 async def main():   
     with open('mqtt_ble_config.json') as conf_f:
         config = json.loads(conf_f.read())
-        address = config["BLE_ADDRESS"]
         topic = config["MQTT_LISTEN_TOPIC"]
         mqtt_host = config["MQTT_HOST"]
         mqtt_port = int(config["MQTT_PORT"])
