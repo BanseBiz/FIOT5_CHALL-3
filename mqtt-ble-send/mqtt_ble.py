@@ -2,13 +2,13 @@ import paho.mqtt.client as mqtt
 import sys
 import time
 import asyncio
-
+import threading
 from bleak import BleakClient
 from bleak import BleakClient, BleakScanner
 from bleak.exc import BleakError
 
 ADDRESS = "ff:21:09:28:32:6c"
-CHARACTERISTIC = "0xFFF3"
+CHARACTERISTIC = "0000fff3-0000-1000-8000-00805f9b34fb"
 ON = "0xBC01010155"
 OFF = "0xBC01010055"
 
