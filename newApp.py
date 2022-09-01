@@ -30,17 +30,19 @@ nums = {0: "0xFF9867",
 app = Dash(__name__)
 
 app.layout = html.Div([html.Div('',className='container'),
-html.h1('Speaker Countdown timer', id='headline'),
-html.h1(' ', id='headline'), 
-html.Div('', id='countdown'),
-html.ul([html.li([html.span(id='minutes')],'Minutes'), [html.span(id='seconds')],'Seconds')]),
+
+html.H1('COLOR BUSTER present'),
+html.H1('Speaker Countdown timer', id='headline'),
+html.Div(id='countdown',children=[html.Ul(children=[
+                   html.Li([html.Span(id='minutes'),'Minutes']),
+                   html.Li([html.Span(id='seconds'),'Seconds'])])]),
 html.Button('Button 1', id='btn-nclicks-1', n_clicks=0),
 html.Button('Button 2', id='btn-nclicks-2', n_clicks=0),
 html.Button('Button 3', id='btn-nclicks-3', n_clicks=0),
 html.Div(id='container-button-timestamp')
 ])
 
-
+'''
 html.Div([
     html.Div('Example Div', style={'color': 'blue', 'fontSize': 14}),
     html.P('Example P', className='my-class', id='my-p-element')
@@ -55,7 +57,7 @@ html.Div([
         Example P
     </p>
 </div>
-
+'''
 @app.callback(
     Output('container-button-timestamp', 'children'),
     Input('btn-nclicks-1', 'n_clicks'),
