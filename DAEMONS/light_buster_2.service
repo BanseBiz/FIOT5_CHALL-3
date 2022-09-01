@@ -1,0 +1,8 @@
+[Unit]
+Description=Script to start and log all necessary python scripts for light_bust>
+
+[Service]
+ExecStart=/usr/bin/python3 /home/fiot5/FIOT5_CHALL-3/mqtt-ir-send/mqtt_ir_relay>
+
+[Install]
+WantedBy=multi-user.target
