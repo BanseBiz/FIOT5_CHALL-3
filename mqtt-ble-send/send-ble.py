@@ -16,14 +16,15 @@ async def main():
     if not device:
         raise BleakError(f"A device with address {ADDRESS} could not be found.")
     async with BleakClient(device) as client:
-        client.connect()
-        #await client.write_gatt_char(CHARACTERISTIC, OFF)
-        #time.sleep(2.0)
-        #await client.write_gatt_char(CHARACTERISTIC, ON)
         svcs = await client.get_services()
         print("Services:")
         for service in svcs:
             print(service)
+            for char in service.characteristics:
+                print(char)
+        #await client.write_gatt_char(CHARACTERISTIC, OFF)
+        #time.sleep(2.0)
+        #await client.write_gatt_char(CHARACTERISTIC, ON)
 
 
 if __name__ == "__main__":
