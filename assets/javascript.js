@@ -3,9 +3,11 @@
         diff,
         duration,
         minutes,
+        RUN=1,
         seconds;
     function timer() {
-        duration = 100;
+    if (RUN==1){      
+      duration = 3;
         // get the number of seconds that have elapsed since 
         // startTimer() was called
         diff = duration - (((Date.now() - start) / 1000) | 0);
@@ -19,19 +21,19 @@
 
 	document.getElementById("minutes").innerText=minutes;
   document.getElementById("seconds").innerText=seconds;
-
+    }
         if (diff <= 0) {
           document.getElementById("headline").innerText = "Times up!";
-          document.getElementById("countdown").style.display = "none";
-          document.getElementById("content").style.display = "block";
-          clearInterval(x);
+          clearInterval();
+          RUN =0;
             // add one second so that the count down starts at the full duration
             // example 05:00 not 04:59
-            start = Date.now() + 1000;
+            //start = Date.now() + 1000;
         }
     };
     // we don't want to wait a full second before the timer starts
     timer();
     setInterval(timer, 1000);
   }());
+
 
