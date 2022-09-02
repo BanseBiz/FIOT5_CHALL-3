@@ -2,7 +2,7 @@ from dash import Dash, dcc, html, Input, Output, State, ctx
 import paho.mqtt.client as paho
 import sys
 import time
-
+import dash_daq as daq
 
 # brokerPi="192.168.0.152"
 brokerPi="127.0.0.1"
@@ -84,9 +84,25 @@ clientPi = paho.Client("control2")  # create client object
 clientPi.connect(brokerPi, port)  # establish connection
 
 
-app.layout = html.Div([
-    html.Button('Submit', id='submit-val', n_clicks=0),
-    html.Button('Turn on/off', id='turn-off', n_clicks=0),
+app.layout = html.Div([html.Div('',className='container'),
+
+html.H1('COLOR BUSTER present'),
+html.H1('Speaker Countdown timer', id='headline'),
+html.Div(id='countdown',children=[html.Ul(children=[
+                   html.Li([html.Span(id='minutes'),'Minutes']),
+                   html.Li([html.Span(id='seconds'),'Seconds'])])]),
+
+html.Div(id='container-button-timestamp'),
+html.Button('Submit', id='submit-val', n_clicks=0),
+
+    daq.PowerButton(
+        id='turn-off',
+        on=False,
+	size=100,
+	color='#FF5E5E'
+    ),
+#    html.Button('Turn on/off', id='turn-off', n_clicks=0),
+
     dcc.Input(id='username', value='Time', type='text'),
     ###DMX###
     html.Div(id='container-button-basic',
@@ -95,19 +111,17 @@ app.layout = html.Div([
              children='Turn off the system'),
 ])
 
-
-
 @app.callback(
     Output('container-button-basic', 'children'),
     Input('submit-val', 'n_clicks'),
-    Input('turn-off', 'n_clicks'),
+    Input('turn-off', 'on_off'),
     Input('username', 'value'))
 
-def update_output(n_clicks, nclicks2, value):
+def update_output(n_clicks, on_off, value):
     print(ctx.triggered_id)
     print("DMX-c" == ctx.triggered_id)
     ########TURN-OFF/ON#####
-    if "turn-off"== ctx.triggered_id:
+    if "turn-off"== ctx.triggered_id and on_off == True:
         msgclock = "0xFFA25D"  # POWER ON
         bits = len(msgclock) * 4
         msg1 = head + "\"" + str(bits) + head2 + msgclock + "\"}"
