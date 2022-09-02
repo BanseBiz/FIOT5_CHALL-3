@@ -113,8 +113,7 @@ html.Button('Submit', id='submit-val', n_clicks=0, style={"margin-left": "15px"}
     html.Div(id='container-button-basic',
              children='Enter a value and press submit'),
 html.Br(),
-    html.Div(id='container-button-turn-off',
-             children='(Turn off)', style={"margin-left": "50px"}),
+#    html.Div(id='container-button-turn-off', children='(Turn off)', style={"margin-left": "50px"}),
 ])
 
 @app.callback(
@@ -305,5 +304,5 @@ def update_output(on_off, n_clicks, value):
 
 
 if __name__ == '__main__':
-    app.run_server(debug=False, host='0.0.0.0')
+    app.run_server(debug=True, host='0.0.0.0')
 
