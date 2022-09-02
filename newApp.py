@@ -127,7 +127,7 @@ def update_output(n_clicks, nclicks2, value):
 
     #####ENTER VALUES AND SET#############
     if "submit-val"==ctx.triggered_id:
-        print(value)
+	print(value)
         print("You entered: ", value, value[0] , value[1])
         first_param = nums[int(value[0])]
         second_param = nums[int(value[1])]
@@ -148,7 +148,7 @@ def update_output(n_clicks, nclicks2, value):
         clientPi.on_publish = on_publish  # assign function to callback
         ret = clientPi.publish(topic, msg11)
         print(msg11)
-        time.sleep(1.0)
+        time.sleep(0.5)
 
         msg2send2 = "0xFF02FD"  # SET
         bits2 = len(msg2send2) * 4
@@ -156,7 +156,7 @@ def update_output(n_clicks, nclicks2, value):
         clientPi.on_publish = on_publish  # assign function to callback
         ret = clientPi.publish(topic, msg12)
         print(msg12)
-        time.sleep(1.0)
+        time.sleep(0.5)
 
         msg2send3 = first_param  # first nb 0
         bits3 = len(msg2send3) * 4
@@ -164,7 +164,7 @@ def update_output(n_clicks, nclicks2, value):
         clientPi.on_publish = on_publish  # assign function to callback
         ret = clientPi.publish(topic, msg13)
         print(msg13)
-        time.sleep(1.0)
+        time.sleep(0.5)
 
         msg2send4 = second_param  # second nb 3
         bits4 = len(msg2send4) * 4
@@ -172,7 +172,7 @@ def update_output(n_clicks, nclicks2, value):
         clientPi.on_publish = on_publish  # assign function to callback
         ret = clientPi.publish(topic, msg14)
         print(msg14)
-        time.sleep(1.0)
+        time.sleep(0.5)
 
         msg2send5 = "0xFFA857"  # OK
         bits5 = len(msg2send5) * 4
@@ -180,7 +180,7 @@ def update_output(n_clicks, nclicks2, value):
         clientPi.on_publish = on_publish  # assign function to callback
         ret = clientPi.publish(topic, msg15)
         print(msg15)
-        time.sleep(1.0)
+        time.sleep(0.5)
 
         ##### Light strip ###########
         ##send to MQTT IR
