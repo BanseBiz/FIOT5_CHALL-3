@@ -32,7 +32,7 @@ button {
 }
 
 container-button-timestamp{
-  padding: 100;
+  padding: 10;
 }
 
 body {
@@ -62,6 +62,9 @@ h1 {
   font-weight: normal;
   letter-spacing: .125rem;
   text-transform: uppercase;
+
+border:1px solid black;
+
 }
 
 li {
@@ -70,13 +73,19 @@ li {
   display: inline-block;
   font-size: 1.5em;
   list-style-type: none;
-  padding: 1em;
+  padding: 3em;
   text-transform: uppercase;
+
+border:1px solid black;
+
 }
 
 li span {
   display: block;
   font-size: 4.5rem;
+
+border:1px solid black;
+
 }
 
 @media all and (max-width: 768px) {
@@ -92,3 +101,4 @@ li span {
     font-size: calc(3.375rem * var(--smaller));
   }
 }
+
