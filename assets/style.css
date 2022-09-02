@@ -76,8 +76,6 @@ h1 {
   letter-spacing: .125rem;
   text-transform: uppercase;
 
-border:1px solid black;
-
 }
 
 @media all and (max-width: 768px) {
