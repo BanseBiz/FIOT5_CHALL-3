@@ -97,7 +97,7 @@ html.Br(),
 html.Div(id='container-button-timestamp'),
     daq.PowerButton(
         id='turn-off',
-        on=True,
+        on=False,
 	size=100,
 	color='#3CD014'
     ),
@@ -128,7 +128,7 @@ def update_output(on_off, n_clicks, value):
     print(ctx.triggered_id)
     print("DMX-c" == ctx.triggered_id)
     ########TURN-OFF/ON#####
-    if "turn-off"== ctx.triggered_id and on_off == True:
+    if on_off == True:
         msgclock = "0xFFA25D"  # POWER ON
         bits = len(msgclock) * 4
         msg1 = head + "\"" + str(bits) + head2 + msgclock + "\"}"
