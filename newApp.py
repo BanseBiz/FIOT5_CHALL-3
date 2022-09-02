@@ -112,12 +112,8 @@ html.Br(),
 )
 
 def update_output(n_clicks, nclicks2, value):
-
     #print(ctx.triggered_id)
     #print("DMX-c" == ctx.triggered_id)
-    ########TURN-OFF/ON#####
-#print(value)
-    #print(n_clicks)
     ########TURN-OFF/ON#####
     if "turn-off"== ctx.triggered_id:
         msgclock = "0xFFA25D"  # POWER ON
@@ -127,28 +123,6 @@ def update_output(n_clicks, nclicks2, value):
         ret = clientPi.publish(topic, msg1)
         print(msg1)
         time.sleep(1.0)
-
-'''
-    if on == True and n_clicks==0:
-        msgclock = "0xFFA25D"  # POWER ON
-        bits = len(msgclock) * 4
-        msg1 = head + "\"" + str(bits) + head2 + msgclock + "\"}"
-        clientPi.on_publish = on_publish  # assign function to callback
-        ret = clientPi.publish(topic, msg1)
-        print(msg1)
-        time.sleep(1.0)
-        STATE_CLOCK = False
-
-    if on == False and STATE_CLOCK == True and n_clicks>0:
-        msgclock = "0xFFA25D"  # POWER ON
-        bits = len(msgclock) * 4
-        msg1 = head + "\"" + str(bits) + head2 + msgclock + "\"}"
-        clientPi.on_publish = on_publish  # assign function to callback
-        ret = clientPi.publish(topic, msg1)
-        print(msg1)
-        STATE_CLOCK = False 
-        time.sleep(1.0)
-'''
     #######SET TIMER AND START ALL GADGETS#######
 
     #####ENTER VALUES AND SET#############
