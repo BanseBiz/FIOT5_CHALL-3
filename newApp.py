@@ -96,8 +96,8 @@ html.Br(),
 daq.PowerButton(
         id='turn-off',
         on=False,
-	size=100,
-	color='#3CD014'
+        size=100,
+        color='#3CD014'
     ),
 #    html.Button('Turn on/off', id='turn-off', n_clicks=0),
 #html.Button('Turn On/Off', id='turn-off', n_clicks=0, style={"margin-left": "15px"}),
@@ -139,21 +139,21 @@ def update_output(on, value, n_clicks):
         clientPi.on_publish = on_publish  # assign function to callback
         ret = clientPi.publish(topic, msg1)
         print(msg1)
-	STATE_CLOCK = True
+        STATE_CLOCK = True
         time.sleep(1.0)
 
     print(on)
     print(STATE_CLOCK)    
 
 
-    if 	STATE_CLOCK == True and on == False:
+    if  STATE_CLOCK == True and on == False:
         msgclock = "0xFFA25D"  # POWER ON
         bits = len(msgclock) * 4
         msg1 = head + "\"" + str(bits) + head2 + msgclock + "\"}"
         clientPi.on_publish = on_publish  # assign function to callback
         ret = clientPi.publish(topic, msg1)
         print(msg1)
-	STATE_CLOCK = False 
+        STATE_CLOCK = False 
         time.sleep(1.0)
 
     #######SET TIMER AND START ALL GADGETS#######
