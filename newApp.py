@@ -93,9 +93,7 @@ html.Br(),
 html.H1('Speaker Countdown Timer', id='headline'),
 html.Br(),
 #html.Div(id='countdown',children=[html.Ul(children=[html.Li([html.Span(id='minutes'),'Minutes']),html.Li([html.Span(id='seconds'),'Seconds'])])]),
-
-html.Div(id='container-button-timestamp'),
-    daq.PowerButton(
+daq.PowerButton(
         id='turn-off',
         on=False,
 	size=100,
@@ -127,6 +125,8 @@ def update_output(on_off, n_clicks, value):
     print(ctx.triggered_id)
     print("DMX-c" == ctx.triggered_id)
     ########TURN-OFF/ON#####
+    print(on_off)
+
     if on_off == True:
         msgclock = "0xFFA25D"  # POWER ON
         bits = len(msgclock) * 4
