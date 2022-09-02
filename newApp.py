@@ -108,7 +108,7 @@ html.Br(),
     Output('container-button-basic', 'children'),
     Input('submit-val', 'n_clicks'),
     Input('turn-off', 'n_clicks'),
-    Input('username', 'value'))
+    Input('username', 'value')
 )
 
 def update_output(n_clicks, nclicks2, value):
