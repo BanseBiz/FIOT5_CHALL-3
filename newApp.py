@@ -100,7 +100,7 @@ html.Div(id='container-button-timestamp'),
     ),
 #    html.Button('Turn on/off', id='turn-off', n_clicks=0),
 
-    dcc.Input(id='username', value='Time', type='text'),
+    dcc.Input(id='username', value='Time', type='text', size="lg"),
     ###DMX###
 html.Button('Submit', id='submit-val', n_clicks=0, style={"margin-left": "15px"}),
 
