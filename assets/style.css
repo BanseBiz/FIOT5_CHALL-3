@@ -12,6 +12,11 @@
 html, body {
   height: 100%;
   margin: 0;
+position: fixed;
+    top: 50%;
+    left: 50%;
+transform: translate(-50%, -50%);
+
 }
 
 button {
@@ -46,10 +51,6 @@ body {
 }
 
 .container {
-position: fixed;
-    top: 50%;
-    left: 50%;
-transform: translate(-50%, -50%);
   color: #333;
   margin: 0 auto;
   text-align: center;
