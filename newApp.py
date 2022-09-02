@@ -5,8 +5,8 @@ import time
 
 
 # brokerPi="192.168.0.152"
-# brokerPi="127.0.0.1"
-brokerPi="172.20.10.11"
+brokerPi="127.0.0.1"
+#brokerPi="172.20.10.11"
 port=1883
 eps=1000
 #1881
@@ -284,5 +284,5 @@ def update_output(n_clicks, nclicks2, value):
 
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server(debug=True, host='0.0.0.0')
 
