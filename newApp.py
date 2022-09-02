@@ -125,7 +125,7 @@ html.Br(),
 
 def update_output(on, value, n_clicks):
 
-    #print(ctx.triggered_id)
+    print(ctx.triggered_id)
     #print("DMX-c" == ctx.triggered_id)
     ########TURN-OFF/ON#####
 #print(value)
