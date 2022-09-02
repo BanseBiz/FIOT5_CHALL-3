@@ -88,11 +88,9 @@ app.layout = html.Div([html.Div('',className='container'),
 
 html.H1('COLOR BUSTER present'),
 html.H1('Speaker Countdown timer', id='headline'),
-'''
-html.Div(id='countdown',children=[html.Ul(children=[
-                   html.Li([html.Span(id='minutes'),'Minutes']),
-                   html.Li([html.Span(id='seconds'),'Seconds'])])]),
-'''
+
+#html.Div(id='countdown',children=[html.Ul(children=[html.Li([html.Span(id='minutes'),'Minutes']),html.Li([html.Span(id='seconds'),'Seconds'])])]),
+
 html.Div(id='container-button-timestamp'),
     daq.PowerButton(
         id='turn-off',
