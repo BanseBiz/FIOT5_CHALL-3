@@ -19,7 +19,6 @@ head="{\"Protocol\":\"NEC\",\"Bits\":"
 head2="\",\"Data\":"
 
 count_sent=1
-STATE_CLOCK=False
 
 def on_publish(client,userdata,result):
     #create function for callback
@@ -131,6 +130,7 @@ def update_output(on, value, n_clicks):
     ########TURN-OFF/ON#####
 #print(value)
     #print(n_clicks)
+    STATE_CLOCK = True
 
     if on == True:
         msgclock = "0xFFA25D"  # POWER ON
@@ -139,10 +139,10 @@ def update_output(on, value, n_clicks):
         clientPi.on_publish = on_publish  # assign function to callback
         ret = clientPi.publish(topic, msg1)
         print(msg1)
-        STATE_CLOCK = True
         time.sleep(1.0)
+        STATE_CLOCK = False
 
-    if on == False:
+    if on == False and STATE_CLOCK = True:
         msgclock = "0xFFA25D"  # POWER ON
         bits = len(msgclock) * 4
         msg1 = head + "\"" + str(bits) + head2 + msgclock + "\"}"
