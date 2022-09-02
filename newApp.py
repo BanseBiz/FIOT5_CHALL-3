@@ -121,13 +121,13 @@ html.Br(),
     Input('submit-val', 'n_clicks')
 )
 
-def update_output(on_off, n_clicks, value):
+def update_output(powerButton, value, n_clicks):
     print(ctx.triggered_id)
     print("DMX-c" == ctx.triggered_id)
     ########TURN-OFF/ON#####
     print(on_off)
 
-    if on_off == True:
+    if powerButton == True:
         msgclock = "0xFFA25D"  # POWER ON
         bits = len(msgclock) * 4
         msg1 = head + "\"" + str(bits) + head2 + msgclock + "\"}"
