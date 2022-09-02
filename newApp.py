@@ -127,7 +127,7 @@ def update_output(n_clicks, nclicks2, value):
 
     #####ENTER VALUES AND SET#############
     if "submit-val"==ctx.triggered_id:
-	print(value)
+        print(value)
         print("You entered: ", value, value[0] , value[1])
         first_param = nums[int(value[0])]
         second_param = nums[int(value[1])]
