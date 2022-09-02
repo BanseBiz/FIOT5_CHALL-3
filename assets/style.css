@@ -21,6 +21,7 @@ transform: translate(-50%, -50%);
 
 username{
  align-items: center;
+  padding: 10;
 }
 
 button {
@@ -36,7 +37,7 @@ button {
 }
 
 container-button-timestamp{
-  padding: 30;
+  padding: 10;
 }
 
 container-button-basic{
