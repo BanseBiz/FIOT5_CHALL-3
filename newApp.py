@@ -119,9 +119,8 @@ html.Br(),
 @app.callback(
     Output('container-button-basic', 'children'),
     Input('turn-off', 'on_off'),
-    Input('submit-val', 'n_clicks'),
-    Input('username', 'value')
-
+    Input('username', 'value'),
+    Input('submit-val', 'n_clicks')
 )
 
 def update_output(on_off, n_clicks, value):
