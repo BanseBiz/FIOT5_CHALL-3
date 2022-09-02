@@ -94,18 +94,12 @@ html.Br(),
 #html.Div(id='countdown',children=[html.Ul(children=[html.Li([html.Span(id='minutes'),'Minutes']),html.Li([html.Span(id='seconds'),'Seconds'])])]),
 html.Button('Turn on/off', id='on', n_clicks=0),
 #html.Button('Turn On/Off', id='turn-off', n_clicks=0, style={"margin-left": "15px"}),
-
-
 html.Br(),
 html.Br(),
-
-    dcc.Input(id='username', value='Time', type='text', style={"margin-left": "15px", 'width': "80", 'padding': "1em", "align-items": "center"}),
-    ###DMX###
-
+dcc.Input(id='username', value='Time', type='text', style={"margin-left": "15px", 'width': "80", 'padding': "1em", "align-items": "center"}),
+###DMX###
 html.Button('Submit', id='submit-val', n_clicks=0, style={"margin-left": "15px"}),
-
-    html.Div(id='container-button-basic',
-             children='Enter a value and press submit'),
+html.Div(id='container-button-basic',children='Enter a value and press submit'),
 html.Br(),
 #    html.Div(id='container-button-turn-off', children='(Turn off)', style={"margin-left": "50px"}),
 ])
