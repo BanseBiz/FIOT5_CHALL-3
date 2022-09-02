@@ -1,0 +1,17 @@
+mkdir .config/systemd
+mkdir .config/systemd/user
+
+place light_buster_1.service  light_buster_2.service light_buster_3.service in ~/.config/systemd/user/
+
+systemctl --user daemon-reload
+systemctl --user enable light_buster_1.service
+systemctl --user start light_buster_1.service
+systemctl --user enable light_buster_2.service
+systemctl --user start light_buster_2.service
+systemctl --user enable light_buster_3.service
+systemctl --user start light_buster_3.service
+
+see status with:
+systemctl --user status light_buster_1.service
+systemctl --user status light_buster_2.service
+systemctl --user status light_buster_3.service
