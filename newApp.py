@@ -251,7 +251,7 @@ def update_output(n_clicks, nclicks2, value):
         no_sent2 = 1
         no_sent3 = 1
         while (elapsed<time_set):
-            print("Time passed: {}, Time set: {}".format(elapsed, time_set))
+            #print("Time passed: {}, Time set: {}".format(elapsed, time_set))
             if time_set / 4<=elapsed < 2*time_set / 4:
                 if no_sent1<=count_sent:
                     payload_LS = "COLOR_TOGGLE"  # TOGGLE
