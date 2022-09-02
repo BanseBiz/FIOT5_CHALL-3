@@ -92,13 +92,15 @@ html.Br(),
 html.H1('Speaker Countdown Timer', id='headline'),
 html.Br(),
 #html.Div(id='countdown',children=[html.Ul(children=[html.Li([html.Span(id='minutes'),'Minutes']),html.Li([html.Span(id='seconds'),'Seconds'])])]),
+'''
 daq.PowerButton(
         id='turn-off',
         on=False,
         size=100,
         color='#3CD014'
     ),
-#    html.Button('Turn on/off', id='turn-off', n_clicks=0),
+'''
+html.Button('Turn on/off', id='on', n_clicks=0),
 #html.Button('Turn On/Off', id='turn-off', n_clicks=0, style={"margin-left": "15px"}),
 
 
@@ -118,20 +120,29 @@ html.Br(),
 
 @app.callback(
     Output('container-button-basic', 'children'),
-    Input('turn-off', 'on'),
-    Input('username', 'value'),
-    Input('submit-val', 'n_clicks')
+    Input('submit-val', 'n_clicks'),
+    Input('turn-off', 'n_clicks'),
+    Input('username', 'value'))
 )
 
-def update_output(on, value, n_clicks):
+def update_output(n_clicks, nclicks2, value):
 
-    print(ctx.triggered_id)
+    #print(ctx.triggered_id)
     #print("DMX-c" == ctx.triggered_id)
     ########TURN-OFF/ON#####
 #print(value)
     #print(n_clicks)
-    STATE_CLOCK = True
+    ########TURN-OFF/ON#####
+    if "turn-off"== ctx.triggered_id:
+        msgclock = "0xFFA25D"  # POWER ON
+        bits = len(msgclock) * 4
+        msg1 = head + "\"" + str(bits) + head2 + msgclock + "\"}"
+        clientPi.on_publish = on_publish  # assign function to callback
+        ret = clientPi.publish(topic, msg1)
+        print(msg1)
+        time.sleep(1.0)
 
+'''
     if on == True and n_clicks==0:
         msgclock = "0xFFA25D"  # POWER ON
         bits = len(msgclock) * 4
@@ -151,7 +162,7 @@ def update_output(on, value, n_clicks):
         print(msg1)
         STATE_CLOCK = False 
         time.sleep(1.0)
-
+'''
     #######SET TIMER AND START ALL GADGETS#######
 
     #####ENTER VALUES AND SET#############
