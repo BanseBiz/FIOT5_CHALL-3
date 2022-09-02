@@ -86,11 +86,11 @@ clientPi.connect(brokerPi, port)  # establish connection
 
 app.layout = html.Div([html.Div('',className='container'),
 
-html.H1('COLOR BUSTER present'),
+html.H1('COLOR BUSTERS present'),
 html.Br(),
 html.Hr(),
 html.Br(),
-html.H1('Speaker Countdown timer', id='headline'),
+html.H1('Speaker Countdown Timer', id='headline'),
 html.Br(),
 #html.Div(id='countdown',children=[html.Ul(children=[html.Li([html.Span(id='minutes'),'Minutes']),html.Li([html.Span(id='seconds'),'Seconds'])])]),
 
@@ -114,7 +114,7 @@ html.Button('Submit', id='submit-val', n_clicks=0, style={"margin-left": "15px"}
              children='Enter a value and press submit'),
 html.Br(),
     html.Div(id='container-button-turn-off',
-             children='(Turn off)', style={"margin-left": "25px"}),
+             children='(Turn off)', style={"margin-left": "50px"}),
 ])
 
 @app.callback(
@@ -305,5 +305,5 @@ def update_output(on_off, n_clicks, value):
 
 
 if __name__ == '__main__':
-    app.run_server(debug=True, host='0.0.0.0')
+    app.run_server(debug=False, host='0.0.0.0')
 
