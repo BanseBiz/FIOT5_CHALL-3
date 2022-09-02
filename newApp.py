@@ -93,14 +93,15 @@ html.Div(id='countdown',children=[html.Ul(children=[
                    html.Li([html.Span(id='seconds'),'Seconds'])])]),
 
 html.Div(id='container-button-timestamp'),
-html.Button('Submit', id='submit-val', n_clicks=0),
-
     daq.PowerButton(
         id='turn-off',
         on=False,
 	size=100,
 	color='#FF5E5E'
     ),
+
+html.Button('Submit', id='submit-val', n_clicks=0),
+
 #    html.Button('Turn on/off', id='turn-off', n_clicks=0),
 
     dcc.Input(id='username', value='Time', type='text'),
@@ -113,11 +114,11 @@ html.Button('Submit', id='submit-val', n_clicks=0),
 
 @app.callback(
     Output('container-button-basic', 'children'),
-    Input('submit-val', 'n_clicks'),
     Input('turn-off', 'on_off'),
+    Input('submit-val', 'n_clicks'),
     Input('username', 'value'))
 
-def update_output(n_clicks, on_off, value):
+def update_output(on_off, n_clicks, value):
     print(ctx.triggered_id)
     print("DMX-c" == ctx.triggered_id)
     ########TURN-OFF/ON#####
