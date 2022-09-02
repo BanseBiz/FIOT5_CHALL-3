@@ -132,7 +132,7 @@ def update_output(on, value, n_clicks):
     #print(n_clicks)
     STATE_CLOCK = True
 
-    if on == True:
+    if on == True and ctx.triggered_id==None:
         msgclock = "0xFFA25D"  # POWER ON
         bits = len(msgclock) * 4
         msg1 = head + "\"" + str(bits) + head2 + msgclock + "\"}"
@@ -142,7 +142,7 @@ def update_output(on, value, n_clicks):
         time.sleep(1.0)
         STATE_CLOCK = False
 
-    if on == False and STATE_CLOCK == True:
+    if on == False and STATE_CLOCK == True and ctx.triggered_id==None:
         msgclock = "0xFFA25D"  # POWER ON
         bits = len(msgclock) * 4
         msg1 = head + "\"" + str(bits) + head2 + msgclock + "\"}"
