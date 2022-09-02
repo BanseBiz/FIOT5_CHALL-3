@@ -122,10 +122,13 @@ html.Br(),
 )
 
 def update_output(powerButton, value, n_clicks):
+
     print(ctx.triggered_id)
     print("DMX-c" == ctx.triggered_id)
     ########TURN-OFF/ON#####
     print(powerButton)
+    print(value)
+    print(nclicks)
 
     if powerButton == True:
         msgclock = "0xFFA25D"  # POWER ON
