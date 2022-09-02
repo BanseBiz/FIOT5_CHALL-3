@@ -132,7 +132,7 @@ def update_output(on, value, n_clicks):
     #print(n_clicks)
     STATE_CLOCK = True
 
-    if on == True and ctx.triggered_id==None:
+    if on == True:
         msgclock = "0xFFA25D"  # POWER ON
         bits = len(msgclock) * 4
         msg1 = head + "\"" + str(bits) + head2 + msgclock + "\"}"
