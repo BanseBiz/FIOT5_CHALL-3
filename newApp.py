@@ -129,8 +129,7 @@ def update_output(on, value, n_clicks):
     #print(ctx.triggered_id)
     #print("DMX-c" == ctx.triggered_id)
     ########TURN-OFF/ON#####
-    print(on)
-    #print(value)
+#print(value)
     #print(n_clicks)
 
     if on == True:
@@ -142,6 +141,9 @@ def update_output(on, value, n_clicks):
         print(msg1)
 	STATE_CLOCK = True
         time.sleep(1.0)
+
+    print(on)
+    print(STATE_CLOCK)    
 
 
     if 	STATE_CLOCK == True and on == False:
