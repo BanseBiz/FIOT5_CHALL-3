@@ -114,7 +114,7 @@ html.Button('Submit', id='submit-val', n_clicks=0, style={"margin-left": "15px"}
              children='Enter a value and press submit'),
 html.Br(),
     html.Div(id='container-button-turn-off',
-             children='(Turn off)' style={"margin-left": "25px"}),
+             children='(Turn off)', style={"margin-left": "25px"}),
 ])
 
 @app.callback(
