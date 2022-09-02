@@ -97,15 +97,18 @@ daq.PowerButton(
         id='turn-off',
         on=False,
 	size=100,
-	color='#3CD014'
+	color='#3CD014', n_clicks=0
     ),
 #    html.Button('Turn on/off', id='turn-off', n_clicks=0),
+#html.Button('Turn On/Off', id='turn-off', n_clicks=0, style={"margin-left": "15px"}),
+
 
 html.Br(),
 html.Br(),
 
     dcc.Input(id='username', value='Time', type='text', style={"margin-left": "15px", 'width': "80", 'padding': "1em", "align-items": "center"}),
     ###DMX###
+
 html.Button('Submit', id='submit-val', n_clicks=0, style={"margin-left": "15px"}),
 
     html.Div(id='container-button-basic',
