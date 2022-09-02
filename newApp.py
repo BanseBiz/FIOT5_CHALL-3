@@ -143,7 +143,7 @@ def update_output(on, value, n_clicks):
         time.sleep(1.0)
 
     if on == False:
-	print(STATE_CLOCK)
+        print(STATE_CLOCK)
         msgclock = "0xFFA25D"  # POWER ON
         bits = len(msgclock) * 4
         msg1 = head + "\"" + str(bits) + head2 + msgclock + "\"}"
