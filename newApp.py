@@ -92,14 +92,6 @@ html.Br(),
 html.H1('Speaker Countdown Timer', id='headline'),
 html.Br(),
 #html.Div(id='countdown',children=[html.Ul(children=[html.Li([html.Span(id='minutes'),'Minutes']),html.Li([html.Span(id='seconds'),'Seconds'])])]),
-'''
-daq.PowerButton(
-        id='turn-off',
-        on=False,
-        size=100,
-        color='#3CD014'
-    ),
-'''
 html.Button('Turn on/off', id='on', n_clicks=0),
 #html.Button('Turn On/Off', id='turn-off', n_clicks=0, style={"margin-left": "15px"}),
 
