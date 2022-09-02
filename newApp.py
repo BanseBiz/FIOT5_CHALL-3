@@ -97,7 +97,7 @@ html.Br(),
 html.Div(id='container-button-timestamp'),
     daq.PowerButton(
         id='turn-off',
-        on=False,
+        on=True,
 	size=100,
 	color='#3CD014'
     ),
@@ -119,8 +119,9 @@ html.Br(),
 @app.callback(
     Output('container-button-basic', 'children'),
     Input('turn-off', 'on_off'),
-    Input('username', 'value'),
-    Input('submit-val', 'n_clicks')
+    Input('submit-val', 'n_clicks'),
+    Input('username', 'value')
+
 )
 
 def update_output(on_off, n_clicks, value):
