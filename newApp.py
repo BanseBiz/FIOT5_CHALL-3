@@ -140,7 +140,7 @@ def update_output(n_clicks, nclicks2, value):
         # client1.connect(broker, port)  # establish connection
         # ret = client1.publish(topic, msg1)
         # print(msg1)
-        time.sleep(1.0)
+        #time.sleep(1.0)
 
         msg2send1 = "0xFF30CF"  # nb 1
         bits1 = len(msg2send1) * 4
