@@ -97,7 +97,7 @@ daq.PowerButton(
         id='turn-off',
         on=False,
 	size=100,
-	color='#3CD014', n_clicks=0
+	color='#3CD014'
     ),
 #    html.Button('Turn on/off', id='turn-off', n_clicks=0),
 #html.Button('Turn On/Off', id='turn-off', n_clicks=0, style={"margin-left": "15px"}),
@@ -119,21 +119,21 @@ html.Br(),
 
 @app.callback(
     Output('container-button-basic', 'children'),
-    Input('turn-off', 'powerButton'),
+    Input('turn-off', 'on'),
     Input('username', 'value'),
     Input('submit-val', 'n_clicks')
 )
 
-def update_output(powerButton, value, n_clicks):
+def update_output(on, value, n_clicks):
 
     #print(ctx.triggered_id)
     #print("DMX-c" == ctx.triggered_id)
     ########TURN-OFF/ON#####
-    print(powerButton)
+    print(on)
     #print(value)
     #print(n_clicks)
 
-    if powerButton == True:
+    if on == True:
         msgclock = "0xFFA25D"  # POWER ON
         bits = len(msgclock) * 4
         msg1 = head + "\"" + str(bits) + head2 + msgclock + "\"}"
