@@ -32,7 +32,15 @@ button {
 }
 
 container-button-timestamp{
-  padding: 5;
+  padding: 30;
+}
+
+container-button-basic{
+  text-align: center;
+  color: #FFFFFF;
+  font-weight: normal;
+  letter-spacing: .125rem;
+  text-transform: uppercase;
 }
 
 body {
@@ -67,38 +75,9 @@ border:1px solid black;
 
 }
 
-li {
-  text-align: center;
-  color: #FFFFFF;
-  display: inline-block;
-  font-size: 1.5em;
-  list-style-type: none;
-  padding: 0.5em;
-  text-transform: uppercase;
-
-border:1px solid black;
-
-}
-
-li span {
-  display: block;
-  font-size: 4.5rem;
-
-border:1px solid black;
-
-}
-
 @media all and (max-width: 768px) {
   h1 {
     font-size: calc(1.5rem * var(--smaller));
-  }
-  
-  li {
-    font-size: calc(1.125rem * var(--smaller));
-  }
-  
-  li span {
-    font-size: calc(3.375rem * var(--smaller));
   }
 }
 
